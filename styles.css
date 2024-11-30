@@ -1,0 +1,182 @@
+/* Tyler Martin */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
+
+:root{
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue:  #499BD2;
+    --dk-gray: #222222;
+    --lt-gray: #EAEAEA;
+    --white: #FFFFFF;
+    --black: #000000;
+    --header-font: "Molle", serif;
+    --fonts: "Montserrat", Helvetica, sans-serif;
+
+}
+
+html{
+    margin: 0 auto;
+    font-size: 1rem;
+}
+#skip, .sr-only{
+    position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+body{
+    line-height: 1.25;
+    color: var(--dk-gray);
+    padding: 0;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    position: relative;
+    font-family: var(--fonts);
+}
+
+#logo{
+    grid-row: 1;
+    justify-self: start;
+}
+
+#logo img{
+    width: 100%;
+    height: auto;
+}
+
+h1{
+    display: flex;
+    grid-row: 2;
+    text-align: left;
+    font-family: var(--header-font);
+    font-size: 3rem;
+    color: var(--dk-gray);
+    padding: 0 50px;
+}
+
+header p{
+    grid-row: 3;
+    text-align: left;
+    font-size: 1.2rem;
+    color: var(--dk-gray);
+    padding: 0 50px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#menu-toggle{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+#menu-toggle input {
+    display: none; 
+}
+
+#menu-toggle label {
+    display: block;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    width: 50%;
+    background-color: var(--yellow);
+    color: var(--dk-gray);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    z-index: 1000;
+}
+
+#menu-toggle ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    box-sizing: border-box;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: var(--teal);
+    
+}
+
+#menu-toggle ul li {
+    padding: 10px 0;
+}
+
+#menu-toggle ul a {
+    text-decoration: none;
+    color: var(--dk-gray);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#menu-toggle input:checked ~ ul {
+    display: flex;
+}
