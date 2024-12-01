@@ -46,6 +46,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* end of css reset */
+
 @import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
 
 :root{
@@ -62,6 +64,8 @@ table {
 
 }
 
+/* skip links */
+ 
 #skip, .sr-only{
     position: absolute;
 	left: -10000px;
@@ -80,7 +84,7 @@ body{
 
 header, nav, main, footer {
     width: 100%;
-    max-width: 100%; /* Keeps content width consistent */
+    max-width: 100%; 
     margin: 0;
     box-sizing: border-box;
 }
@@ -88,6 +92,7 @@ header, nav, main, footer {
 img {
     width: 100%;
     box-sizing: border-box;
+    height: auto;
 }
 
 header{
@@ -123,12 +128,12 @@ h1, h2, h3{
     font-family: var(--header-font);
 }
 
-h4, p, q, small, nav, button, form{
+h4, p, q, small, nav, button, form, span{
     font-family: var(--fonts);
 }
 
 h3{
-    padding: 25px 0 0 75px;
+    padding: 25px 0 0 50px;
     font-size: 2.5rem;
 }
 
@@ -240,6 +245,8 @@ nav {
 
 #intro img{
     padding: 5px 0;
+    width: 100%;
+    height: auto;
 }
 
 /* Start of Plan your Trip */
@@ -332,3 +339,48 @@ nav {
 
 /* Start of About Section */
 
+#about{
+    background-color: var(--blue);
+}
+
+#about div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    align-content: center;
+    justify-content: center;
+    padding: 15px 10px;
+}
+
+#about section{
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    align-content: center;
+    align-items: baseline;
+}
+
+#about img{
+    width: 100%;
+    max-width: 70%;
+    height: auto;
+}
+
+#about h4{
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#about p{
+    font-size: 1.1rem;
+}
+
+/* Start of Contact form */
+
+#contact span{
+    font-size: 1.1rem;
+    font-style: italic;
+    padding: 0 10px;
+}
