@@ -1,851 +1,238 @@
-/* Tyler Martin */
-@import url('https://fonts.googleapis.com/css2?family=Molle&family=Montserrat&display=swap');
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-/* end of css reset */
-
-:root{
-    --yellow: #F6D64A;
-    --teal: #55BCD5;
-    --purple: #9B26B0;
-    --blue:  #499BD2;
-    --dk-gray: #222222;
-    --lt-gray: #EAEAEA;
-    --white: #FFFFFF;
-    --black: #000000;
-    --header-font: "Molle", serif;
-    --fonts: "Montserrat", Helvetica, sans-serif;
-
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* skip links */
- 
-#skip, .sr-only{
-    position: absolute;
-	left: -10000px;
-	top: auto;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-}
-
-body{
-    line-height: 1.2;
-    color: var(--dk-gray);
-    padding: 0;
-    margin: 0 auto;
-}
-
-header, nav, main, footer {
-    width: 100%;
-    max-width: 100%; 
-    margin: 0;
-    box-sizing: border-box;
-}
-
-img {
-    width: 100%;
-    box-sizing: border-box;
-    height: auto;
-}
-
-header{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    align-items: center;
-    position: relative;
-    font-family: var(--fonts);
-    background: linear-gradient(to bottom, var(--teal), var(--white));
-    padding-bottom: 50px;
-}
-
-#logo{
-    grid-row: 1;
-    justify-self: start;
-}
-
-#logo img{
-    width: 100%;
-    height: auto;
-}
-
-h1{
-    display: flex;
-    grid-row: 2;
-    text-align: left;
-    font-family: var(--header-font);
-    font-size: 3rem;
-    color: var(--dk-gray);
-    padding: 0 50px;
-}
-
-h1, h2, h3{
-    font-family: var(--header-font);
-}
-
-h4, p, q, small, nav, button, form, span{
-    font-family: var(--fonts);
-}
-
-h3{
-    padding: 25px 0 0 50px;
-    font-size: 2.5rem;
-}
-
-h2{
-    display: flex;
-    text-align: left;
-    font-family: var(--header-font);
-    font-size: 2.5rem;
-    color: var(--dk-gray);
-}
-
-header p{
-    grid-row: 3;
-    text-align: left;
-    font-size: 1.2rem;
-    color: var(--dk-gray);
-    padding: 0 50px;
-}
-
-nav {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* start of menu button for mobile view mode */
-#menu-toggle{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-#menu-toggle input {
-    display: none; 
-}
-
-#menu-toggle label {
-    display: block;
-    padding: 15px 50px;
-    box-sizing: border-box;
-    width: 50%;
-    background-color: var(--yellow);
-    color: var(--dk-gray);
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: center;
-    position: absolute;
-    top: 25px;
-    right: 0;
-    z-index: 1000;
-}
-
-#menu-toggle ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 76px;
-    right: 0;
-    box-sizing: border-box;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background: var(--teal);
-    
-}
-
-#menu-toggle ul li {
-    padding: 20px 0;
-}
-
-#menu-toggle ul li:hover{
-    background-color: var(--yellow);
-    width: 100%;
-}
-#menu-toggle ul a {
-    text-decoration: none;
-    color: var(--dk-gray);
-    font-size: 1.1rem;
-    font-weight: bold;
-    align-items: center;
-    text-transform: uppercase;
-}
-
-#menu-toggle input:checked ~ ul {
-    display: flex;
-}
-/* end of mobile menu button */
-
-/* start of Intro */
-#intro{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-#intro h2{
-    margin-top: 25px;
-    padding: 25px 50px 0 50px;
-}
-
-#intro p {
-    display: flex;
-    padding: 0 50px;
-}
-
-#intro img, #intro picture{
-    width: 100%;
-    height: auto;
-}
-
-/* Start of Plan your Trip */
-
-#plan{
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-top: 10px;
-    background-color: var(--yellow);
-}
-
-#plan section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    background-color: var(--teal);
-    border: 3px solid var(--white);
-    max-width: 80%;
-    margin: 10px auto;
-    padding: 10px 0;
-    border-radius: 5px;
-
-}
-
-#plan h4{
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 15px 0;
-
-}
-
-#plan img{
-    padding: 25px 0;
-}
-
-/* Start of Testimonials */
-
-#testimonials{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-#testimonials h3{
-    margin: 15px 0;
-}
-
-#testimonials section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
-#testimonials img{
-    width: 100%;
-    max-width: 40%;
-    margin: 0 auto;
-}
-
-#testimonials h4{
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-#testimonials p{
-    font-size: 1.1rem;
-}
-
-#testimonials q{
-    font-size: 1.1rem;
-    font-style: italic;
-    display: block;
-    margin: 0 auto;
-    padding: 5px 50px;
-    width: 60%;
-    position: relative;
-}
-
-#testimonials q::before{
-    content: '"';
-}
-
-#testimonials q::after{
-    content: '"';
-}
-
-/* Start of About Section */
-
-#about{
-    background-color: var(--blue);
-}
-
-#about div{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
-    align-content: center;
-    justify-content: center;
-    padding: 15px 10px;
-}
-
-#about section{
-    margin: 0 auto;
-    padding: 5px;
-    text-align: center;
-    box-sizing: border-box;
-    align-content: center;
-    align-items: baseline;
-}
-
-#about img{
-    width: 100%;
-    max-width: 70%;
-    height: auto;
-}
-
-#about h4{
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-#about p{
-    font-size: 1.1rem;
-}
-
-/* Start of Contact form */
-
-#contact .form-required{
-    font-size: 1.1rem;
-    font-style: italic;
-}
-
-form {
-    margin: 0 auto;
-    padding: 10px 50px;
-}
-
-form input{
-    font-family: var(--fonts);
-    font-size: 1.1rem;
-}
-
-.required{
-    color: var(--purple);
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-#names input, #names label, #contact select, #email, #phone, #selects input, #selects label{
-    display: inline-block;
-    width: 100%;
-}
-
-#contact input{
-    padding: 25px 0;
-    border: 2px solid var(--purple);
-}
-
-#contact label{
-    display: block;
-}
-
-#contact input::placeholder, #contact textarea::placeholder{
-    font-size: 1rem;
-    padding-left: 5px;
-    color: var(--dk-gray);
-}
-
-/* radio buttons */
-.radio-control{
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.1;
-    display: grid;
-    grid-template-columns: 1rem auto;
-    gap: 0.5rem;
-    justify-content: center;
-}
-
-.radio-input{
-    display: inline-flex;
-    align-items: center;
-    
-}
-
-.radio-label{
-    font-weight: normal;
-    text-transform: capitalize;
-}
-
-input[type="radio"] {
-    /* Add if not using autoprefixer */
-    -webkit-appearance: none;
-    appearance: none;
-    /* For iOS < 15 to remove gradient background */
-    background-color: #fff;
-    /* Not removed via appearance */
-    margin: 0;
-    font: inherit;
-    color: currentColor;
-    width: 3.15em;
-    height: 1.15em;
-    border: 0.15em solid currentColor;
-    border-radius: 50%;
-    transform: translateY(-0.075em);
-    display: grid;
-    place-content: center;
-  }
-
-  input[type="radio"]::before {
-    content: "";
-    width: 1.4em;
-    height: 1.4em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(--purple);
-  }
-
-  input[type="radio"]:checked::before {
-    transform: scale(1);
-  }
-
-  .radio-control + .radio-control{
-    margin-top: 1rem;
-  }
-
-#contact label{
-    margin: 5px 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-legend{
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-/* select dropdown */
-
-select { 
-    appearance: none;
-    background-color: transparent;
-    border: none;
-    margin: 0;
-    width: 100%;
-    font-family: var(--fonts);
-    font-size: 1.1rem;
-    cursor: inherit;
-    line-height: inherit;
-    outline: none;
-  }
-
-.custom-select {
-    width: 100%;
-    border: 2px solid var(--purple);
-    padding: 25px 5px;
-    cursor: pointer;
-    line-height: 1.1;
-    background-color: var(--white);
-    display: grid;
-    grid-template-areas: "select";
-    align-items: center;
-    align-content: center;
-    position: relative;
-    
-  }
-
-.custom-select::after{
-    content: "";
-    width: 1.5em;
-    height: 0.8em;
-    background-color: var(--purple);
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-    justify-self: end;
-    position: absolute;
-    right: 5%;
-  }
-
-.custom-select, .custom-select::after{
-    grid-area: select;
-  }
-
-select:focus + .focus {
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-    border: 2px solid var(--blue);
-    border-radius: inherit;
-  }
-
-/* Submit Button */
-
-div #mySubmit{
-    margin: 15px 0;
-    background-color: var(--purple);
-    color: var(--white);
-    font-weight: bold;
-    text-transform: uppercase;
- }
-
- /* Footer Styles */
-
- footer{
-    background-color: var(--lt-gray);
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 15px 0;
- }
- footer p{
-    padding-bottom: 15px;
- }
-
- footer a{
-    font-family: var(--fonts);
-    font-size: 1.1rem;
-    padding: 5px 0;
-    text-decoration: none;
-    color: var(--dk-gray);
- }
-
- /* ********* Medium Screen Styles ************ */
-
- @media screen and (min-width: 768px){
-    /* Header and Menu Styles */
-
-    header{
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-        grid-template-rows: auto auto auto;
-        gap: 10px;
-        margin: 0 auto; 
-    }
-
-    header img{
-        grid-column: 1;
-        grid-row: 1 / 3;
-        width: 100%;
-    }
-
-    h1{
-        grid-column: 2;
-        grid-row: 1;
-    }
-
-    header p {
-        grid-column: 2;
-        grid-row: 2;
-    }
-    nav{
-        grid-column: 1 / 3;
-        grid-row: 3;
-        max-width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    #menu-toggle{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    #menu-toggle label {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-    }
-    #menu-toggle ul {
-        display: contents;
-        padding: 0;
-        margin: 0;
-    }
-
-    #menu-toggle ul li {
-        padding: 20px 5px;
-        background-color: var(--white); 
-    }
-
-    #menu-toggle ul li:hover {
-        background-color: var(--yellow);
-        width: 100%;
-    }
-
-        /* Main - Content Start */
-        /* Intro Styles */
-
-    #intro {
-        margin: 0 auto;
-    }
-    #img-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 20px;
-        padding: 0 50px;
-    }
-    #img-grid img {
-        grid-row: 1;
-        padding: 0;
-    }
-
-    #img-grid picture {
-        width: 100%;
-        grid-row: 2;
-        grid-column:1 / span 2;
-    }
-
-    /* Plan Your Trip Styles */
-    #plan div{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 20px;
-        padding: 25px 0;
-    }
-    #plan section {
-        width: 100%;
-        
-    }
-
-    #plan a{
-        padding: 25px 0;
-        padding-left: 30px;
-    }
-
-    #plan img{
-        width: 100%;
-        max-width: 80%;
-        height: auto;
-    }
-
-    /* Testimonials Styles */
-
-    #testimonials div{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-        gap: 10px;
-        padding: 10px 0;
-    }
-
-    #testimonials img{
-        width: 100%;
-        max-width: 40%;
-        height: auto;
-    }
-
-    #testimonials q{
-        width: 100%; 
-    }
-
-    /* Begin About Destination Styles */
-
-    #about div{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    #about section{
-        grid-row: 1;
-    }
-
-    /* Contact Forms Style */
-
-    fieldset{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    #selects {
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-    }
-
-    div #mySubmit{
-        align-self: flex-end;
-        width: 50%;
-        cursor: pointer;
-    }
-
-    /* Footer styles */
-
-    footer {
-        flex-direction: row;
-        align-items: baseline;
-        justify-content: space-evenly;
-        padding: 25px 0 10px 0;
-    }
- }
-
-/************ Large Screen Styles ****************/
-
- @media screen and (min-width: 1200px){
-
-    /* header styles */
-    header{
-        display: grid;
-        grid-template-columns: .5fr 2fr 2fr;
-        grid-template-rows: auto;
-    }
-
-    header a{
-        grid-column: 1;
-        grid-row: 1;
-        padding: 5px;
-    }
-
-    h1{
-        grid-column: 2;
-        grid-row: 1
-    }
-
-    nav {
-        grid-column: 3;
-        grid-row: 1;
-    }
-
-    #menu-toggle ul li {
-        padding: 10px 10px;
-        align-items:start;
-    }
-
-    /* Intro Styles */
-
-    #intro {
-        display: grid;
-        grid-template-columns: 1fr 1fr; 
-        gap: 20px; 
-        align-items: start; 
-        padding: 20px; 
-    }
-    
-    #intro h2,
-    #intro p {
-        grid-column: 1; 
-        
-    }
-    
-    #img-grid {
-        grid-column: 2; 
-        grid-row: 1 / span 2;
-        display: grid; 
-        grid-template-rows: auto; 
-        gap: 20px; 
-    }
-
-    /* Plan your Trip styles Large Site */
-
-    #plan{
-        padding: 25px;
-    }
-    #plan h3{
-        padding-top: 50px;
-    }
-
-    #plan div{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding: 25px 25px;
-    }
-
-    /* Testimonials Styles Large Screen */
-
-    #testimonials div{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        justify-content: space-evenly;
-    }
-
-    #testimonials img{
-        width: 100%;
-        max-width: 60%;
-    }
-
-    /* About Destination styles */
-
-
-
-
-
- }
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Jessica Barnett, Christina Carrasquilla">
+        <meta name="description" content="Let Wunderlust Travel take you to beautiful Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors">
+        <meta name="keywords" content="travel, majorca, beach, island, vacation, destination, getaway, restaurants in majorca, entertainment in majorca, testimonials from visitors">
+        <title>Wunderlust Travel</title>
+        <meta name="robots" content="index,follow">
+
+        <!-- ~~~~~~~~~~ TWITTER CARD TAGS ~~~~~~~~~~ -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@wunderlusttravel">
+        <meta name="twitter:creator" content="@wunderlusttravel">
+        <meta name="twitter:title" content="Wunderlust Travel: Majorca">
+        <meta name="twitter:description" content="Let Wunderlust Travel take you to beautiful Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors">
+        <meta name="twitter:image" content="https://wunderlusttravel.com/images/majorca-cove.png">
+
+        <!-- ~~~~~~~~~~ OPEN GRAPH META TAGS ~~~~~~~~~~ -->
+        <meta property="og:title" content="See Majorca with Wunderlust Travel">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="https://wunderlusttravel.com/images/majorca-cove.png">
+        <meta property="og:url" content="https://wunderlusttravel.com/majorca">
+        <meta property="og:description" content="Let Wunderlust Travel take you to beautiful Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors">
+        <!-- ~~~~~~~~~~FAVICON ~~~~~~~~~~ -->
+        <link rel="shortcut icon" href="images/favicon.png">
+
+        <!-- ~~~~~~~~~~ GOOGLE FONTS ~~~~~~~~~~ -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <a id="skip" href="#main-content">Skip to Main Content</a>
+        <!-- styling skip links: https://webaim.org/techniques/css/invisiblecontent/ -->
+        <header>
+            <a href="index.html" id="logo"><img src="images/logo.png" alt="The Wunderlust logo shows blue waves and the outline of two palm trees against an orange sun"></a>
+            <h1>Wunderlust</h1>
+			<p>Let Wunderlust Travel help you plan the trip of your dreams!</p>			
+            <nav>
+                <div id="menu-toggle">
+                    <!-- responsive menu code from (with changes made to match mockups): https://css-tricks.com/three-css-alternatives-to-javascript-navigation/ -->
+                    <h2 class="sr-only">Main Navigation</h2>
+                    <!-- hidden but accessible headings from: https://webaim.org/techniques/css/invisiblecontent/ -->
+                    <input name="toggle" id="toggle" type="checkbox">
+                    <label for="toggle">Menu</label>
+                    <ul>
+                        <li class="active"><a href="#">Destinations</a></li>
+                        <li><a href="#">Inspirations</a></li>
+                        <li><a href="#">Special</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main id="main-content">
+            <article>
+                <div id="intro">  
+                    <h2>Majorca</h2>
+                    <p>Imagine an island with turquoise blue waters, secret coves, soft golden sands, lush green foliage, rugged mountains, picturesque villages and a vibrant capital city. The island and its capital, Palma, are overflowing with character, while its beaches are famous all around the world, making it one of the most sought-after summer destinations.</p>
+                    <div id="img-grid">
+                        <img src="images/majorca-waves.png" alt="Turquoise blue waters with white wave caps crashing against a rock cliff">
+                        <img src="images/majorca-beach.png" alt="A calm cove with turquoise waters calmly lapping at a light sand beach">
+                        <picture>
+                            <source srcset="images/majorca-cove-small.png"
+                                media="(max-width: 500px)">
+                            <img src="images/majorca-cove.png" alt="Deep blue water leading to the horizon with the island and trees in the foreground">
+                        </picture>
+                    </div>
+                </div>  
+                <section id="plan">
+                    <h3>Plan Your Trip</h3>
+                    <div>
+                        <section>
+                            <h4>How to Get There</h4>
+                            <a href="#" title="Search for flights">
+                                <img src="images/get.svg" alt="airplane icon">
+                            </a>
+                        </section>      
+                        <section>
+                            <h4>Places to Stay</h4>
+                            <a href="#" title="Search for hotels">
+                                <img src="images/stay.svg" alt="bed icon">
+                            </a>
+                        </section>
+                        <section>
+                            <h4>Things to Do</h4>
+                            <a href="#" title="Search for Activities">
+                                <img src="images/do.svg" alt="sailboat icon">
+                            </a>                     
+                        </section>    
+                        <section>
+                            <h4>Where to Eat</h4>
+                            <a href="#" title="Search for Restaurants">
+                                <img src="images/eat.svg" alt="fork and spoon icon">                         
+                            </a>
+                        </section>
+                    </div>   
+                </section>
+                <section id="testimonials">
+                    <h3>Testimonials</h3>
+                    <div>
+                        <section>
+                            <img src="images/miranda-blake.png" alt="Miranda Blake has a blonde bob and is wearing dark sunglasses">
+                            <h4>Amanda Blake</h4>
+                            <p>London, England</p>
+                            <q>I traveled here for business, but my stay was extended. Now it is my home.</q>
+                        </section>
+                        <section>
+                            <img src="images/max-winter.png" alt="Max Winter has dark blonde hair and a trimmed beard and mustache">
+                            <h4>Max Winter</h4>
+                            <p>Berlin, Germany</p>
+                            <q>Great escape from my reality. Beautiful sunsets, wonderful people, great beer.</q>
+                        </section>
+                        <section>
+                            <img src="images/ines-villegoes.png" alt="Ines Villegos has shoulder-length, wavy, brown hair and is wearing a brown sweater"> 
+                            <h4>Inés Villegos</h4> 
+                            <p>Barcelona, Spain</p>
+                            <q>A very safe environment for all travelers.</q>
+                        </section>
+                        <section>
+                            <img src="images/carmen-lorenzo.png" alt="Carmen Lorenzo has long, dark brown hair and is wearing gold hoop earrings">
+                            <h4>Carmen Lorenzo</h4> 
+                            <p>Madrid, Spain</p>
+                            <q>Live, laugh, love-- everything you need in Majorca.</q>
+                        </section>
+                    </div>
+                </section>
+                <section id="about">
+                    <h3>About Your Destination</h3>
+                    <div>
+                        <section>
+                            <img src="images/size.svg" alt="ruler icon">
+                            <h4>Size</h4> 
+                            <p>1,405 miles squared</p>
+                        </section>
+                        <section>
+                            <img src="images/elevation.svg" alt="mountain icon">
+                            <h4>Elevation</h4> 
+                            <p>4,741 feet</p>
+                        </section>
+                        <section>
+                            <img src="images/location.svg" alt="location pin icon">
+                            <h4>Location</h4> 
+                            <p>Mediterranean</p>
+                        </section>
+                        <section>
+                            <img src="images/population.svg" alt="people icon">
+                            <h4>Population</h4>
+                            <p>923,608</p>
+                        </section>
+                    </div>  
+                </section>
+                <section id="contact">
+                    <h3>Contact Us <span class="form-required">*required</span></h3>
+                    <form method="post" action="https://wp.zybooks.com/form-viewer.php">
+                        <div id="names">
+                            <label for="fName">First Name<span class="required">*</span></label>
+                            <input type="text" name="fName" id="fName" autocomplete="given-name" placeholder="First Name" required>
+                            <!-- custom input styles from https://moderncss.dev/custom-css-styles-for-form-inputs-and-textareas/ -->
+                            <label for="lName">Last Name<span class="required">*</span></label>
+                            <input type="text" name="lName" id="lName" autocomplete="family-name" placeholder="Last Name" required>
+                        </div>
+                        <div id="nums">
+                            <fieldset>
+                                <legend>Contact Method<span class="required">*</span></legend>
+                                <!-- custom radio button styles from https://moderncss.dev/pure-css-custom-styled-radio-buttons/ -->
+                                <label for="prefEmail">
+                                    <span class="radio-input">
+                                        <input type="radio" name="contactPref" id="prefEmail" required checked>
+                                        <span class="radio-control"></span>
+                                    </span>
+                                    <span class="radio-label">Email</span>
+                                </label>
+                                <label for="prefText">
+                                    <span class="radio-input">
+                                        <input type="radio" name="contactPref" id="prefText">
+                                        <span class="radio-control"></span>
+                                    </span>
+                                    <span class="radio-label">Text</span>
+                                </label>
+                                <label for="prefPhone">
+                                    <span class="radio-input">
+                                        <input type="radio" name="contactPref" id="prefPhone">
+                                        <span class="radio-control"></span>
+                                    </span>
+                                    <span class="radio-label">Phone</span>
+                                </label>
+                            </fieldset>
+                            <label for="email">Email Address<span class="required">*</span></label>
+                            <input type="email" name="email" id="email" autocomplete="email" placeholder="Email Address" required>
+                            <label for="phone">Phone Number<span class="required">*</span></label>
+                            <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div id="selects">
+                            <!-- custom select styles from: https://moderncss.dev/custom-select-styles-with-pure-css/ -->
+                            <label for="destination">Destination<span class="required">*</span></label>
+                            <div class="custom-select">
+                                <select name="destination" id="destination" required>
+                                    <option value="" disabled selected>Choose an Option</option>
+                                    <option value="barcelona">Barcelona</option>
+                                    <option value="granada">Granada</option>
+                                    <option value="ibiza">Ibiza</option>
+                                    <option value="madrid">Madrid</option>
+                                    <option value="majora">Majora</option>
+                                    <option value="seville">Seville</option>
+                                    <option value="tenerife">Tenerife</option>
+                                    <option value="valencia">Valencia</option>
+                                </select>
+                                <span class="focus"></span>
+                            </div>  
+                            <label for="travelTime">Travel Time<span class="required">*</span></label>
+                            <div class="custom-select">
+                                <select name="travelTime" id="travelTime" required>
+                                    <option value="" disabled selected>Choose an Option</option>
+                                    <option value="fall">Fall</option>
+                                    <option value="winter">Winter</option>
+                                    <option value="spring">Spring</option>
+                                    <option value="summer">Summer</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                                <span class="focus"></span>
+                            </div> 
+                            <input type="submit" name="mySubmit" id="mySubmit" value="Submit">
+                        </div>
+                    </form>
+                </section>
+            </article>
+        </main>
+        <footer>
+            <p>Copyright &copy; 2021 Wunderlust Travel</p>
+            <a href="#">Privacy Statement</a>
+            <a href="#">Terms of Service</a>
+        </footer>
+    </body>
+</html>
