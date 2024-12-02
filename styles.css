@@ -81,7 +81,7 @@ table {
 }
 
 body{
-    line-height: 1.5;
+    line-height: 1.2;
     color: var(--dk-gray);
     padding: 0;
     margin: 0 auto;
@@ -251,7 +251,6 @@ nav {
 }
 
 #intro img, #intro picture{
-    padding: 5px 0;
     width: 100%;
     height: auto;
 }
@@ -706,9 +705,6 @@ div #mySubmit{
         gap: 10px;
         padding: 10px 0;
     }
-    #testimonials section {
-        display: grid;
-    }
 
     #testimonials img{
         width: 100%;
@@ -763,18 +759,93 @@ div #mySubmit{
 
 /************ Large Screen Styles ****************/
 
- @media screen and (min-width: 1920px){
+ @media screen and (min-width: 1200px){
 
     /* header styles */
     header{
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
+        grid-template-columns: .5fr 2fr 2fr;
+        grid-template-rows: auto;
     }
+
     header a{
         grid-column: 1;
-        grid-row: 1 / span 2;
+        grid-row: 1;
+        padding: 5px;
     }
+
+    h1{
+        grid-column: 2;
+        grid-row: 1
+    }
+
+    nav {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #menu-toggle ul li {
+        padding: 10px 10px;
+        align-items:start;
+    }
+
+    /* Intro Styles */
+
+    #intro {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 20px; 
+        align-items: start; 
+        padding: 20px; 
+    }
+    
+    #intro h2,
+    #intro p {
+        grid-column: 1; 
+        
+    }
+    
+    #img-grid {
+        grid-column: 2; 
+        grid-row: 1 / span 2;
+        display: grid; 
+        grid-template-rows: auto; 
+        gap: 20px; 
+    }
+
+    /* Plan your Trip styles Large Site */
+
+    #plan{
+        padding: 25px;
+    }
+    #plan h3{
+        padding-top: 50px;
+    }
+
+    #plan div{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 25px 25px;
+    }
+
+    /* Testimonials Styles Large Screen */
+
+    #testimonials div{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: space-evenly;
+    }
+
+    #testimonials img{
+        width: 100%;
+        max-width: 60%;
+    }
+
+    /* About Destination styles */
+
+    
+
 
 
  }
